@@ -194,7 +194,7 @@ bash
 
 curl -s "http://localhost:9090/api/v1/query?query=up" | jq
 
-**Grafana**
+Grafana
 
 Install Grafana
 
