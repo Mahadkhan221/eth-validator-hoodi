@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: "geth"
+    metrics_path: /debug/metrics/prometheus
+    static_configs:
+      - targets: ["localhost:6060"]
+
+  - job_name: "lighthouse-beacon"
+    static_configs:
+      - targets: ["localhost:5054"]
+
+  - job_name: "lighthouse-validator"
+    static_configs:
+      - targets: ["localhost:5064"]
+

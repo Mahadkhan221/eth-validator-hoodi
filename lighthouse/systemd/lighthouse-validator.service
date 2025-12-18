@@ -1,0 +1,25 @@
+[Unit]
+Description=Lighthouse Validator Client (Hoodi Testnet)
+After=lighthouse-beacon.service
+Wants=lighthouse-beacon.service
+
+[Service]
+User=ethereum
+Group=ethereum
+Type=simple
+
+ExecStart=/usr/local/bin/lighthouse vc \
+  --network hoodi \
+  --datadir /data/lighthouse/validator \
+  --beacon-nodes http://127.0.0.1:5052 \
+  --metrics \
+  --metrics-address 127.0.0.1 \
+  --metrics-port 5064
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
+

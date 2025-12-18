@@ -1,0 +1,33 @@
+
+[Unit]
+Description=Geth Execution Client (Hoodi Testnet)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ethereum
+Group=ethereum
+Type=simple
+ExecStart=/usr/bin/geth \
+  --datadir /data/geth \
+  --http \
+  --http.addr 0.0.0.0 \
+  --http.port 8545 \
+  --http.api eth,net,web3 \
+  --ws \
+  --ws.addr 0.0.0.0 \
+  --ws.port 8546 \
+  --authrpc.addr 127.0.0.1 \
+  --authrpc.port 8551 \
+  --authrpc.vhosts localhost \
+  --authrpc.jwtsecret /data/jwt.hex \
+  --metrics \
+  --metrics.addr 0.0.0.0 \
+  --metrics.port 6060
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
