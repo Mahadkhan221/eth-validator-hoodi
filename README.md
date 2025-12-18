@@ -55,6 +55,12 @@ yaml
 - Stable internet connection
 
 ---
+### Grafana
+A ready-to-use dashboard is included in:
+grafana/dashboards/hoodi-dashboard.json
+
+You can import it via:
+Grafana → Dashboards → Import → Upload JSON
 
 ## Base System Setup
 
